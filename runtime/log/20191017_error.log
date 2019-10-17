@@ -1,0 +1,6 @@
+---------------------------------------------------------------
+[ 2019-10-17T09:05:41+08:00 ] 172.26.2.48 GET local.hqy.com/v1/systematic/system/setting.html
+[ error ] [8]未定义变量: params[/opt/web/hqy/runtime/temp/9083404eb5a81f722cdb01af04dab7f3.php:366]
+---------------------------------------------------------------
+[ 2019-10-17T09:06:43+08:00 ] 172.26.2.48 GET local.hqy.com/v1/systematic/system/setting.html
+[ error ] [8]未定义变量: data_list[/opt/web/hqy/runtime/temp/9083404eb5a81f722cdb01af04dab7f3.php:423]
