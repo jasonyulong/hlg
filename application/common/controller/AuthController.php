@@ -14,7 +14,7 @@ use think\Controller;
 use think\Cookie;
 use think\Hook;
 use think\Lang;
-use think\session;
+use think\Session;
 
 /**
  * 后台控制器基类

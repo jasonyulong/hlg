@@ -66,7 +66,7 @@ class Db
 
     /**
      * 数据库初始化，并取得数据库类实例
-     * @access layout
+     * @access public
      * @param  mixed       $config 连接配置
      * @param  bool|string $name   连接标识 true 强制重新连接
      * @return Connection
@@ -107,7 +107,7 @@ class Db
 
     /**
      * 清除连接实例
-     * @access layout
+     * @access public
      * @return void
      */
     public static function clear()
@@ -168,7 +168,7 @@ class Db
 
     /**
      * 调用驱动类的方法
-     * @access layout
+     * @access public
      * @param  string $method 方法名
      * @param  array  $params 参数
      * @return mixed

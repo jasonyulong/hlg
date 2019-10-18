@@ -27,7 +27,7 @@ class MorphTo extends Relation
 
     /**
      * 构造函数
-     * @access layout
+     * @access public
      * @param Model  $parent    上级模型对象
      * @param string $morphType 多态字段名
      * @param string $morphKey  外键名
@@ -45,7 +45,7 @@ class MorphTo extends Relation
 
     /**
      * 获取当前的关联模型类的实例
-     * @access layout
+     * @access public
      * @return Model
      */
     public function getModel()
@@ -79,7 +79,7 @@ class MorphTo extends Relation
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param string  $operator 比较操作符
      * @param integer $count    个数
      * @param string  $id       关联表的统计字段
@@ -93,7 +93,7 @@ class MorphTo extends Relation
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param  mixed  $where 查询条件（数组或者闭包）
      * @param  mixed  $fields   字段
      * @return Query
@@ -105,7 +105,7 @@ class MorphTo extends Relation
 
     /**
      * 解析模型的完整命名空间
-     * @access protected
+     * @access public
      * @param string $model 模型名（或者完整类名）
      * @return string
      */
@@ -125,7 +125,7 @@ class MorphTo extends Relation
 
     /**
      * 设置多态别名
-     * @access layout
+     * @access public
      * @param array $alias 别名定义
      * @return $this
      */
@@ -137,7 +137,7 @@ class MorphTo extends Relation
 
     /**
      * 移除关联查询参数
-     * @access layout
+     * @access public
      * @return $this
      */
     public function removeOption()
@@ -147,7 +147,7 @@ class MorphTo extends Relation
 
     /**
      * 预载入关联查询
-     * @access layout
+     * @access public
      * @param array    $resultSet   数据集
      * @param string   $relation    当前关联名
      * @param string   $subRelation 子关联名
@@ -200,7 +200,7 @@ class MorphTo extends Relation
 
     /**
      * 预载入关联查询
-     * @access layout
+     * @access public
      * @param Model    $result      数据对象
      * @param string   $relation    当前关联名
      * @param string   $subRelation 子关联名
@@ -218,7 +218,7 @@ class MorphTo extends Relation
 
     /**
      * 关联统计
-     * @access layout
+     * @access public
      * @param Model    $result  数据对象
      * @param \Closure $closure 闭包
      * @return integer
@@ -229,7 +229,7 @@ class MorphTo extends Relation
 
     /**
      * 多态MorphTo 关联模型预查询
-     * @access   layout
+     * @access   public
      * @param object $model       关联模型对象
      * @param string $relation    关联名
      * @param        $result
@@ -250,7 +250,7 @@ class MorphTo extends Relation
 
     /**
      * 添加关联数据
-     * @access layout
+     * @access public
      * @param Model     $model  关联模型对象
      * @param string    $type   多态类型
      * @return Model
@@ -270,7 +270,7 @@ class MorphTo extends Relation
 
     /**
      * 注销关联数据
-     * @access layout
+     * @access public
      * @return Model
      */
     public function dissociate()
@@ -285,15 +285,4 @@ class MorphTo extends Relation
         return $this->parent->setRelation($this->relation, null);
     }
 
-    /**
-     * 创建关联统计子查询
-     * @access layout
-     * @param \Closure $closure 闭包
-     * @param string   $name    统计数据别名
-     * @return string
-     */
-    public function getRelationCountQuery($closure, &$name = null)
-    {
-        throw new Exception('relation not support: withCount');
-    }
 }

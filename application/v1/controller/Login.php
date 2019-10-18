@@ -2,7 +2,7 @@
 namespace app\v1\controller;
 use think\Controller;
 use app\v1\service\Systems;
-use think\session;
+use think\Session;
 class Login extends Controller
 {
     /**

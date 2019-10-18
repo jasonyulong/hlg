@@ -50,7 +50,7 @@ class Lang
 
     /**
      * 设定当前的语言
-     * @access layout
+     * @access public
      * @param  string $range 语言作用域
      * @return string
      */
@@ -65,7 +65,7 @@ class Lang
 
     /**
      * 设置语言定义(不区分大小写)
-     * @access layout
+     * @access public
      * @param  string|array  $name  语言变量
      * @param  string        $value 语言值
      * @param  string        $range 语言作用域
@@ -88,7 +88,7 @@ class Lang
 
     /**
      * 加载语言定义(不区分大小写)
-     * @access layout
+     * @access public
      * @param  array|string $file 语言文件
      * @param  string $range      语言作用域
      * @return mixed
@@ -126,7 +126,7 @@ class Lang
 
     /**
      * 获取语言定义(不区分大小写)
-     * @access layout
+     * @access public
      * @param  string|null $name  语言变量
      * @param  string      $range 语言作用域
      * @return mixed
@@ -140,7 +140,7 @@ class Lang
 
     /**
      * 获取语言定义(不区分大小写)
-     * @access layout
+     * @access public
      * @param  string|null $name  语言变量
      * @param  array       $vars  变量替换
      * @param  string      $range 语言作用域
@@ -185,7 +185,7 @@ class Lang
 
     /**
      * 自动侦测设置获取语言选择
-     * @access layout
+     * @access public
      * @return string
      */
     public static function detect()
@@ -221,7 +221,7 @@ class Lang
 
     /**
      * 设置语言自动侦测的变量
-     * @access layout
+     * @access public
      * @param  string $var 变量名称
      * @return void
      */
@@ -232,7 +232,7 @@ class Lang
 
     /**
      * 设置语言的 cookie 保存变量
-     * @access layout
+     * @access public
      * @param  string $var 变量名称
      * @return void
      */
@@ -243,7 +243,7 @@ class Lang
 
     /**
      * 设置语言的 cookie 的过期时间
-     * @access layout
+     * @access public
      * @param  string $expire 过期时间
      * @return void
      */
@@ -254,7 +254,7 @@ class Lang
 
     /**
      * 设置允许的语言列表
-     * @access layout
+     * @access public
      * @param  array $list 语言列表
      * @return void
      */

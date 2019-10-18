@@ -33,7 +33,7 @@ abstract class Builder
 
     /**
      * 构造函数
-     * @access layout
+     * @access public
      * @param Connection    $connection 数据库连接对象实例
      * @param Query         $query      数据库查询对象实例
      */
@@ -45,7 +45,7 @@ abstract class Builder
 
     /**
      * 获取当前的连接对象实例
-     * @access layout
+     * @access public
      * @return Connection
      */
     public function getConnection()
@@ -55,7 +55,7 @@ abstract class Builder
 
     /**
      * 获取当前的Query对象实例
-     * @access layout
+     * @access public
      * @return Query
      */
     public function getQuery()
@@ -98,10 +98,6 @@ abstract class Builder
 
         $result = [];
         foreach ($data as $key => $val) {
-            if ('*' != $options['field'] && !in_array($key, $fields, true)) {
-                continue;
-            }
-
             $item = $this->parseKey($key, $options, true);
             if ($val instanceof Expression) {
                 $result[$item] = $val->getValue();
@@ -117,15 +113,13 @@ abstract class Builder
             } elseif (is_null($val)) {
                 $result[$item] = 'NULL';
             } elseif (is_array($val) && !empty($val)) {
-                switch (strtolower($val[0])) {
+                switch ($val[0]) {
                     case 'inc':
                         $result[$item] = $item . '+' . floatval($val[1]);
                         break;
                     case 'dec':
                         $result[$item] = $item . '-' . floatval($val[1]);
                         break;
-                    case 'exp':
-                        throw new Exception('not support data:[' . $val[0] . ']');
                 }
             } elseif (is_scalar($val)) {
                 // 过滤非标量数据
@@ -251,7 +245,7 @@ abstract class Builder
 
     /**
      * 生成查询条件SQL
-     * @access layout
+     * @access public
      * @param mixed     $where
      * @param array     $options
      * @return string
@@ -273,7 +267,9 @@ abstract class Builder
             foreach ($val as $field => $value) {
                 if ($value instanceof Expression) {
                     $str[] = ' ' . $key . ' ( ' . $value->getValue() . ' )';
-                } elseif ($value instanceof \Closure) {
+                    continue;
+                }
+                if ($value instanceof \Closure) {
                     // 使用闭包查询
                     $query = new Query($this->connection);
                     call_user_func_array($value, [ & $query]);
@@ -549,9 +545,7 @@ abstract class Builder
                 list($table, $type, $on) = $item;
                 $condition               = [];
                 foreach ((array) $on as $val) {
-                    if ($val instanceof Expression) {
-                        $condition[] = $val->getValue();
-                    } elseif (strpos($val, '=')) {
+                    if (strpos($val, '=')) {
                         list($val1, $val2) = explode('=', $val, 2);
                         $condition[]       = $this->parseKey($val1, $options) . '=' . $this->parseKey($val2, $options);
                     } else {
@@ -632,7 +626,7 @@ abstract class Builder
     protected function parseComment($comment)
     {
         if (false !== strpos($comment, '*/')) {
-            $comment = strstr($comment, '*/', true);
+            $comment = strstr($coment, '*/', true);
         }
         return !empty($comment) ? ' /* ' . $comment . ' */' : '';
     }
@@ -703,7 +697,7 @@ abstract class Builder
 
     /**
      * 生成查询SQL
-     * @access layout
+     * @access public
      * @param array $options 表达式
      * @return string
      */
@@ -731,7 +725,7 @@ abstract class Builder
 
     /**
      * 生成insert SQL
-     * @access layout
+     * @access public
      * @param array     $data 数据
      * @param array     $options 表达式
      * @param bool      $replace 是否replace
@@ -762,7 +756,7 @@ abstract class Builder
 
     /**
      * 生成insertall SQL
-     * @access layout
+     * @access public
      * @param array     $dataSet 数据集
      * @param array     $options 表达式
      * @param bool      $replace 是否replace
@@ -806,7 +800,7 @@ abstract class Builder
         }
 
         foreach ($insertFields as $field) {
-            $fields[] = $this->parseKey($field, $options, true);
+            $fields[] = $this->parseKey($query, $field, true);
         }
 
         return str_replace(
@@ -822,7 +816,7 @@ abstract class Builder
 
     /**
      * 生成select insert SQL
-     * @access layout
+     * @access public
      * @param array     $fields 数据
      * @param string    $table 数据表
      * @param array     $options 表达式
@@ -841,7 +835,7 @@ abstract class Builder
 
     /**
      * 生成update SQL
-     * @access layout
+     * @access public
      * @param array     $data 数据
      * @param array     $options 表达式
      * @return string
@@ -875,7 +869,7 @@ abstract class Builder
 
     /**
      * 生成delete SQL
-     * @access layout
+     * @access public
      * @param array $options 表达式
      * @return string
      */

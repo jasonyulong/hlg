@@ -15,7 +15,7 @@ class Build
 {
     /**
      * 根据传入的 build 资料创建目录和文件
-     * @access layout
+     * @access public
      * @param  array  $build     build 列表
      * @param  string $namespace 应用类库命名空间
      * @param  bool   $suffix    类库后缀
@@ -94,7 +94,7 @@ class Build
 
     /**
      * 创建模块
-     * @access layout
+     * @access public
      * @param  string $module    模块名
      * @param  array  $list      build 列表
      * @param  string $namespace 应用类库命名空间

@@ -20,7 +20,7 @@ class Hook
 
     /**
      * 动态添加行为扩展到某个标签
-     * @access layout
+     * @access public
      * @param  string $tag      标签名称
      * @param  mixed  $behavior 行为名称
      * @param  bool   $first    是否放到开头执行
@@ -47,7 +47,7 @@ class Hook
 
     /**
      * 批量导入插件
-     * @access layout
+     * @access public
      * @param  array   $tags      插件信息
      * @param  boolean $recursive 是否递归合并
      * @return void
@@ -65,7 +65,7 @@ class Hook
 
     /**
      * 获取插件信息
-     * @access layout
+     * @access public
      * @param  string $tag 插件位置(留空获取全部)
      * @return array
      */
@@ -80,7 +80,7 @@ class Hook
 
     /**
      * 监听标签的行为
-     * @access layout
+     * @access public
      * @param  string $tag    标签名称
      * @param  mixed  $params 传入参数
      * @param  mixed  $extra  额外参数
@@ -105,7 +105,7 @@ class Hook
 
     /**
      * 执行某个行为
-     * @access layout
+     * @access public
      * @param  mixed  $class  要执行的行为
      * @param  string $tag    方法名（标签名）
      * @param  mixed  $params 传人的参数

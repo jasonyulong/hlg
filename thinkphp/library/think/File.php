@@ -57,7 +57,7 @@ class File extends SplFileObject
 
     /**
      * File constructor.
-     * @access layout
+     * @access public
      * @param  string $filename 文件名称
      * @param  string $mode     访问模式
      */
@@ -69,7 +69,7 @@ class File extends SplFileObject
 
     /**
      * 设置是否是单元测试
-     * @access layout
+     * @access public
      * @param  bool $test 是否是测试
      * @return $this
      */
@@ -82,7 +82,7 @@ class File extends SplFileObject
 
     /**
      * 设置上传信息
-     * @access layout
+     * @access public
      * @param  array $info 上传文件信息
      * @return $this
      */
@@ -95,7 +95,7 @@ class File extends SplFileObject
 
     /**
      * 获取上传文件的信息
-     * @access layout
+     * @access public
      * @param  string $name 信息名称
      * @return array|string
      */
@@ -106,7 +106,7 @@ class File extends SplFileObject
 
     /**
      * 获取上传文件的文件名
-     * @access layout
+     * @access public
      * @return string
      */
     public function getSaveName()
@@ -116,7 +116,7 @@ class File extends SplFileObject
 
     /**
      * 设置上传文件的保存文件名
-     * @access layout
+     * @access public
      * @param  string $saveName 保存名称
      * @return $this
      */
@@ -129,7 +129,7 @@ class File extends SplFileObject
 
     /**
      * 获取文件的哈希散列值
-     * @access layout
+     * @access public
      * @param  string $type 类型
      * @return string
      */
@@ -161,7 +161,7 @@ class File extends SplFileObject
 
     /**
      * 获取文件类型信息
-     * @access layout
+     * @access public
      * @return string
      */
     public function getMime()
@@ -173,7 +173,7 @@ class File extends SplFileObject
 
     /**
      * 设置文件的命名规则
-     * @access layout
+     * @access public
      * @param  string $rule 文件命名规则
      * @return $this
      */
@@ -186,7 +186,7 @@ class File extends SplFileObject
 
     /**
      * 设置上传文件的验证规则
-     * @access layout
+     * @access public
      * @param  array $rule 验证规则
      * @return $this
      */
@@ -199,7 +199,7 @@ class File extends SplFileObject
 
     /**
      * 检测是否合法的上传文件
-     * @access layout
+     * @access public
      * @return bool
      */
     public function isValid()
@@ -209,7 +209,7 @@ class File extends SplFileObject
 
     /**
      * 检测上传文件
-     * @access layout
+     * @access public
      * @param  array $rule 验证规则
      * @return bool
      */
@@ -246,7 +246,7 @@ class File extends SplFileObject
 
     /**
      * 检测上传文件后缀
-     * @access layout
+     * @access public
      * @param  array|string $ext 允许后缀
      * @return bool
      */
@@ -263,7 +263,7 @@ class File extends SplFileObject
 
     /**
      * 检测图像文件
-     * @access layout
+     * @access public
      * @return bool
      */
     public function checkImg()
@@ -296,7 +296,7 @@ class File extends SplFileObject
 
     /**
      * 检测上传文件大小
-     * @access layout
+     * @access public
      * @param  integer $size 最大大小
      * @return bool
      */
@@ -307,7 +307,7 @@ class File extends SplFileObject
 
     /**
      * 检测上传文件类型
-     * @access layout
+     * @access public
      * @param  array|string $mime 允许类型
      * @return bool
      */
@@ -320,7 +320,7 @@ class File extends SplFileObject
 
     /**
      * 移动文件
-     * @access layout
+     * @access public
      * @param  string      $path     保存路径
      * @param  string|bool $savename 保存的文件名 默认自动生成
      * @param  boolean     $replace  同名文件是否覆盖
@@ -449,7 +449,7 @@ class File extends SplFileObject
 
     /**
      * 获取错误信息（支持多语言）
-     * @access layout
+     * @access public
      * @return string
      */
     public function getError()
@@ -466,7 +466,7 @@ class File extends SplFileObject
 
     /**
      * 魔法方法，获取文件的 hash 值
-     * @access layout
+     * @access public
      * @param  string $method 方法名
      * @param  mixed  $args   调用参数
      * @return string

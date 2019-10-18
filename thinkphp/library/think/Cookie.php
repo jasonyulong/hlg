@@ -33,7 +33,7 @@ class Cookie
 
     /**
      * Cookie初始化
-     * @access layout
+     * @access public
      * @param  array $config 配置参数
      * @return void
      */
@@ -54,7 +54,7 @@ class Cookie
 
     /**
      * 设置或者获取 cookie 作用域（前缀）
-     * @access layout
+     * @access public
      * @param  string $prefix 前缀
      * @return string|
      */
@@ -69,7 +69,7 @@ class Cookie
 
     /**
      * Cookie 设置、获取、删除
-     * @access layout
+     * @access public
      * @param  string $name   cookie 名称
      * @param  mixed  $value  cookie 值
      * @param  mixed  $option 可选参数 可能会是 null|integer|string
@@ -116,7 +116,7 @@ class Cookie
 
     /**
      * 永久保存 Cookie 数据
-     * @access layout
+     * @access public
      * @param  string $name   cookie 名称
      * @param  mixed  $value  cookie 值
      * @param  mixed  $option 可选参数 可能会是 null|integer|string
@@ -135,7 +135,7 @@ class Cookie
 
     /**
      * 判断是否有 Cookie 数据
-     * @access layout
+     * @access public
      * @param  string      $name   cookie 名称
      * @param  string|null $prefix cookie 前缀
      * @return bool
@@ -151,7 +151,7 @@ class Cookie
 
     /**
      * 获取 Cookie 的值
-     * @access layout
+     * @access public
      * @param string      $name   cookie 名称
      * @param string|null $prefix cookie 前缀
      * @return mixed
@@ -193,7 +193,7 @@ class Cookie
 
     /**
      * 删除 Cookie
-     * @access layout
+     * @access public
      * @param  string      $name   cookie 名称
      * @param  string|null $prefix cookie 前缀
      * @return void
@@ -219,7 +219,7 @@ class Cookie
 
     /**
      * 清除指定前缀的所有 cookie
-     * @access layout
+     * @access public
      * @param  string|null $prefix cookie 前缀
      * @return void
      */

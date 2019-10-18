@@ -25,7 +25,7 @@ class Config
 
     /**
      * 设定配置参数的作用域
-     * @access layout
+     * @access public
      * @param  string $range 作用域
      * @return void
      */
@@ -38,7 +38,7 @@ class Config
 
     /**
      * 解析配置文件或内容
-     * @access layout
+     * @access public
      * @param  string $config 配置文件路径或内容
      * @param  string $type   配置解析类型
      * @param  string $name   配置名（如设置即表示二级配置）
@@ -60,7 +60,7 @@ class Config
 
     /**
      * 加载配置文件（PHP格式）
-     * @access layout
+     * @access public
      * @param  string $file  配置文件名
      * @param  string $name  配置名（如设置即表示二级配置）
      * @param  string $range 作用域
@@ -92,7 +92,7 @@ class Config
 
     /**
      * 检测配置是否存在
-     * @access layout
+     * @access public
      * @param  string $name 配置参数名（支持二级配置 . 号分割）
      * @param  string $range  作用域
      * @return bool
@@ -112,7 +112,7 @@ class Config
 
     /**
      * 获取配置参数 为空则获取所有配置
-     * @access layout
+     * @access public
      * @param  string $name 配置参数名（支持二级配置 . 号分割）
      * @param  string $range  作用域
      * @return mixed
@@ -151,7 +151,7 @@ class Config
 
     /**
      * 设置配置参数 name 为数组则为批量设置
-     * @access layout
+     * @access public
      * @param  string|array $name  配置参数名（支持二级配置 . 号分割）
      * @param  mixed        $value 配置值
      * @param  string       $range 作用域
@@ -197,7 +197,7 @@ class Config
 
     /**
      * 重置配置参数
-     * @access layout
+     * @access public
      * @param  string $range 作用域
      * @return void
      */

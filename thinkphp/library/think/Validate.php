@@ -67,8 +67,6 @@ class Validate
         'min'         => 'min size of :attribute must be :rule',
         'after'       => ':attribute cannot be less than :rule',
         'before'      => ':attribute cannot exceed :rule',
-        'afterWith'   => ':attribute cannot be less than :rule',
-        'beforeWith'  => ':attribute cannot exceed :rule',
         'expire'      => ':attribute not within :rule',
         'allowIp'     => 'access IP is not allowed',
         'denyIp'      => 'access IP denied',
@@ -105,7 +103,7 @@ class Validate
 
     /**
      * 构造函数
-     * @access layout
+     * @access public
      * @param array $rules 验证规则
      * @param array $message 验证提示信息
      * @param array $field 验证字段描述信息
@@ -119,7 +117,7 @@ class Validate
 
     /**
      * 实例化验证
-     * @access layout
+     * @access public
      * @param array     $rules 验证规则
      * @param array     $message 验证提示信息
      * @param array     $field 验证字段描述信息
@@ -152,7 +150,7 @@ class Validate
 
     /**
      * 注册验证（类型）规则
-     * @access layout
+     * @access public
      * @param string    $type  验证规则类型
      * @param mixed     $callback callback方法(或闭包)
      * @return void
@@ -184,7 +182,7 @@ class Validate
 
     /**
      * 设置提示信息
-     * @access layout
+     * @access public
      * @param string|array  $name  字段名称
      * @param string        $message 提示信息
      * @return Validate
@@ -201,7 +199,7 @@ class Validate
 
     /**
      * 设置验证场景
-     * @access layout
+     * @access public
      * @param string|array  $name  场景名或者场景设置数组
      * @param mixed         $fields 要验证的字段
      * @return Validate
@@ -222,7 +220,7 @@ class Validate
 
     /**
      * 判断是否存在某个验证场景
-     * @access layout
+     * @access public
      * @param string $name 场景名
      * @return bool
      */
@@ -233,7 +231,7 @@ class Validate
 
     /**
      * 设置批量验证
-     * @access layout
+     * @access public
      * @param bool $batch  是否批量验证
      * @return Validate
      */
@@ -245,7 +243,7 @@ class Validate
 
     /**
      * 数据自动验证
-     * @access layout
+     * @access public
      * @param array     $data  数据
      * @param mixed     $rules  验证规则
      * @param string    $scene 验证场景
@@ -438,7 +436,7 @@ class Validate
 
     /**
      * 获取当前验证类型及规则
-     * @access layout
+     * @access public
      * @param  mixed     $key
      * @param  mixed     $rule
      * @return array
@@ -880,16 +878,12 @@ class Validate
             // 支持多个字段验证
             $fields = explode('^', $key);
             foreach ($fields as $key) {
-                if (isset($data[$key])) {
-                    $map[$key] = $data[$key];
-                }
+                $map[$key] = $data[$key];
             }
         } elseif (strpos($key, '=')) {
             parse_str($key, $map);
-        } elseif (isset($data[$field])) {
-            $map[$key] = $data[$field];
         } else {
-            $map = [];
+            $map[$key] = $data[$field];
         }
 
         $pk = isset($rule[3]) ? $rule[3] : $db->getPk();
@@ -1119,10 +1113,9 @@ class Validate
      * @access protected
      * @param mixed     $value  字段值
      * @param mixed     $rule  验证规则
-     * @param array     $data  数据
      * @return bool
      */
-    protected function after($value, $rule, $data)
+    protected function after($value, $rule)
     {
         return strtotime($value) >= strtotime($rule);
     }
@@ -1132,40 +1125,11 @@ class Validate
      * @access protected
      * @param mixed     $value  字段值
      * @param mixed     $rule  验证规则
-     * @param array     $data  数据
      * @return bool
      */
-    protected function before($value, $rule, $data)
+    protected function before($value, $rule)
     {
         return strtotime($value) <= strtotime($rule);
-    }
-
-    /**
-     * 验证日期字段
-     * @access protected
-     * @param mixed     $value  字段值
-     * @param mixed     $rule  验证规则
-     * @param array     $data  数据
-     * @return bool
-     */
-    protected function afterWith($value, $rule, $data)
-    {
-        $rule = $this->getDataValue($data, $rule);
-        return !is_null($rule) && strtotime($value) >= strtotime($rule);
-    }
-
-    /**
-     * 验证日期字段
-     * @access protected
-     * @param mixed     $value  字段值
-     * @param mixed     $rule  验证规则
-     * @param array     $data  数据
-     * @return bool
-     */
-    protected function beforeWith($value, $rule, $data)
-    {
-        $rule = $this->getDataValue($data, $rule);
-        return !is_null($rule) && strtotime($value) <= strtotime($rule);
     }
 
     /**

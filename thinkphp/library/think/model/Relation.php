@@ -40,7 +40,7 @@ abstract class Relation
 
     /**
      * 获取关联的所属模型
-     * @access layout
+     * @access public
      * @return Model
      */
     public function getParent()
@@ -50,7 +50,7 @@ abstract class Relation
 
     /**
      * 获取当前的关联模型对象实例
-     * @access layout
+     * @access public
      * @return Model
      */
     public function getModel()
@@ -60,7 +60,7 @@ abstract class Relation
 
     /**
      * 获取关联的查询对象
-     * @access layout
+     * @access public
      * @return Query
      */
     public function getQuery()
@@ -70,7 +70,7 @@ abstract class Relation
 
     /**
      * 设置当前关联为自关联
-     * @access layout
+     * @access public
      * @param  bool $self 是否自关联
      * @return $this
      */
@@ -82,7 +82,7 @@ abstract class Relation
 
     /**
      * 当前关联是否为自关联
-     * @access layout
+     * @access public
      * @return bool
      */
     public function isSelfRelation()
@@ -92,7 +92,7 @@ abstract class Relation
 
     /**
      * 封装关联数据集
-     * @access layout
+     * @access public
      * @param array $resultSet 数据集
      * @return mixed
      */

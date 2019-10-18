@@ -8,7 +8,7 @@ namespace app\v1\service;
 use app\common\model\Menu;
 use app\common\model\Admin;
 use app\common\model\Site;
-use think\session;
+use think\Session;
 use plugin\Tree;
 use plugin\Crypt;
 use think\Cache;
@@ -76,6 +76,14 @@ class Systems
             return false;
         }
         //存入session
+//        $arr['userid'] = $user_info['id'];
+//        $arr['username'] = $user_info['username'];
+//        $arr['truename'] = $user_info['truename'];
+//        $arr['tel'] = $user_info['tel'];
+//        $arr['power'] = $user_info['power'];
+//        $arr['admin'] = $user_info['admin'];
+//        Session::set('admin_user',$arr);
+//        echo Session::get('admin_user');exit;
         Session::set('userid',$user_info['id']);
         Session::set('username',$user_info['username']);
         Session::set('truename',$user_info['truename']);

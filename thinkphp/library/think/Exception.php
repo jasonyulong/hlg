@@ -44,7 +44,7 @@ class Exception extends \Exception
     /**
      * 获取异常额外 Debug 数据
      * 主要用于输出到异常页面便于调试
-     * @access layout
+     * @access public
      * @return array
      */
     final public function getData()

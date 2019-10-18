@@ -28,7 +28,7 @@ class MorphMany extends Relation
 
     /**
      * 构造函数
-     * @access layout
+     * @access public
      * @param Model  $parent    上级模型对象
      * @param string $model     模型名
      * @param string $morphKey  关联外键
@@ -68,7 +68,7 @@ class MorphMany extends Relation
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param string  $operator 比较操作符
      * @param integer $count    个数
      * @param string  $id       关联表的统计字段
@@ -82,7 +82,7 @@ class MorphMany extends Relation
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param  mixed  $where 查询条件（数组或者闭包）
      * @param  mixed  $fields   字段
      * @return Query
@@ -94,7 +94,7 @@ class MorphMany extends Relation
 
     /**
      * 预载入关联查询
-     * @access layout
+     * @access public
      * @param array    $resultSet   数据集
      * @param string   $relation    当前关联名
      * @param string   $subRelation 子关联名
@@ -138,7 +138,7 @@ class MorphMany extends Relation
 
     /**
      * 预载入关联查询
-     * @access layout
+     * @access public
      * @param Model    $result      数据对象
      * @param string   $relation    当前关联名
      * @param string   $subRelation 子关联名
@@ -169,7 +169,7 @@ class MorphMany extends Relation
 
     /**
      * 关联统计
-     * @access layout
+     * @access public
      * @param Model    $result  数据对象
      * @param \Closure $closure 闭包
      * @return integer
@@ -188,19 +188,15 @@ class MorphMany extends Relation
     }
 
     /**
-     * 创建关联统计子查询
-     * @access layout
+     * 获取关联统计子查询
+     * @access public
      * @param \Closure $closure 闭包
-     * @param string   $name    统计数据别名
      * @return string
      */
-    public function getRelationCountQuery($closure, &$name = null)
+    public function getRelationCountQuery($closure)
     {
         if ($closure) {
-            $return = call_user_func_array($closure, [ & $this->query]);
-            if ($return && is_string($return)) {
-                $name = $return;
-            }
+            call_user_func_array($closure, [ & $this->query]);
         }
 
         return $this->query->where([
@@ -214,7 +210,7 @@ class MorphMany extends Relation
 
     /**
      * 多态一对多 关联模型预查询
-     * @access   layout
+     * @access   public
      * @param array         $where       关联预查询条件
      * @param string        $relation    关联名
      * @param string        $subRelation 子关联
@@ -239,7 +235,7 @@ class MorphMany extends Relation
 
     /**
      * 保存（新增）当前关联数据对象
-     * @access layout
+     * @access public
      * @param mixed $data 数据 可以使用数组 关联模型对象 和 关联对象的主键
      * @return Model|false
      */
@@ -248,41 +244,18 @@ class MorphMany extends Relation
         if ($data instanceof Model) {
             $data = $data->getData();
         }
-
         // 保存关联表数据
         $pk = $this->parent->getPk();
 
+        $model                  = new $this->model;
         $data[$this->morphKey]  = $this->parent->$pk;
         $data[$this->morphType] = $this->type;
-
-        $model = new $this->model();
-
-        return $model->save() ? $model : false;
-    }
-
-    /**
-     * 创建关联对象实例
-     * @param array $data
-     * @return Model
-     */
-    public function make($data = [])
-    {
-        if ($data instanceof Model) {
-            $data = $data->getData();
-        }
-
-        // 保存关联表数据
-        $pk = $this->parent->getPk();
-
-        $data[$this->morphKey]  = $this->parent->$pk;
-        $data[$this->morphType] = $this->type;
-
-        return new $this->model($data);
+        return $model->save($data) ? $model : false;
     }
 
     /**
      * 批量保存当前关联数据对象
-     * @access layout
+     * @access public
      * @param array $dataSet 数据集
      * @return integer
      */

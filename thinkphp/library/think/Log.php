@@ -61,7 +61,7 @@ class Log
 
     /**
      * 日志初始化
-     * @access layout
+     * @access public
      * @param  array $config 配置参数
      * @return void
      */
@@ -85,7 +85,7 @@ class Log
 
     /**
      * 获取日志信息
-     * @access layout
+     * @access public
      * @param  string $type 信息类型
      * @return array|string
      */
@@ -96,7 +96,7 @@ class Log
 
     /**
      * 记录调试信息
-     * @access layout
+     * @access public
      * @param  mixed  $msg  调试信息
      * @param  string $type 信息类型
      * @return void
@@ -111,7 +111,7 @@ class Log
 
     /**
      * 清空日志信息
-     * @access layout
+     * @access public
      * @return void
      */
     public static function clear()
@@ -121,7 +121,7 @@ class Log
 
     /**
      * 设置当前日志记录的授权 key
-     * @access layout
+     * @access public
      * @param  string $key 授权 key
      * @return void
      */
@@ -132,7 +132,7 @@ class Log
 
     /**
      * 检查日志写入权限
-     * @access layout
+     * @access public
      * @param  array $config 当前日志配置参数
      * @return bool
      */
@@ -143,7 +143,7 @@ class Log
 
     /**
      * 保存调试信息
-     * @access layout
+     * @access public
      * @return bool
      */
     public static function save()
@@ -176,7 +176,7 @@ class Log
             }
         }
 
-        if ($result = self::$driver->save($log, true)) {
+        if ($result = self::$driver->save($log)) {
             self::$log = [];
         }
 
@@ -187,7 +187,7 @@ class Log
 
     /**
      * 实时写入日志信息 并支持行为
-     * @access layout
+     * @access public
      * @param  mixed  $msg   调试信息
      * @param  string $type  信息类型
      * @param  bool   $force 是否强制写入
@@ -211,7 +211,7 @@ class Log
         is_null(self::$driver) && self::init(Config::get('log'));
 
         // 写入日志
-        if ($result = self::$driver->save($log, false)) {
+        if ($result = self::$driver->save($log)) {
             self::$log = [];
         }
 
@@ -220,7 +220,7 @@ class Log
 
     /**
      * 静态方法调用
-     * @access layout
+     * @access public
      * @param  string $method 调用方法
      * @param  mixed  $args   参数
      * @return void

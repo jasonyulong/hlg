@@ -62,7 +62,7 @@ class Loader
 
     /**
      * 自动加载
-     * @access layout
+     * @access public
      * @param  string $class 类名
      * @return bool
      */
@@ -161,7 +161,7 @@ class Loader
 
     /**
      * 注册 classmap
-     * @access layout
+     * @access public
      * @param  string|array $class 类名
      * @param  string       $map   映射
      * @return void
@@ -177,7 +177,7 @@ class Loader
 
     /**
      * 注册命名空间
-     * @access layout
+     * @access public
      * @param  string|array $namespace 命名空间
      * @param  string       $path      路径
      * @return void
@@ -259,7 +259,7 @@ class Loader
 
     /**
      * 注册命名空间别名
-     * @access layout
+     * @access public
      * @param  array|string $namespace 命名空间
      * @param  string       $original  源文件
      * @return void
@@ -275,7 +275,7 @@ class Loader
 
     /**
      * 注册自动加载机制
-     * @access layout
+     * @access public
      * @param  callable $autoload 自动加载处理方法
      * @return void
      */
@@ -367,7 +367,7 @@ class Loader
 
     /**
      * 导入所需的类库 同 Java 的 Import 本函数有缓存功能
-     * @access layout
+     * @access public
      * @param  string $class   类库命名空间字符串
      * @param  string $baseUrl 起始路径
      * @param  string $ext     导入的文件扩展名
@@ -428,7 +428,7 @@ class Loader
 
     /**
      * 实例化（分层）模型
-     * @access layout
+     * @access public
      * @param  string $name         Model名称
      * @param  string $layer        业务层名称
      * @param  bool   $appendSuffix 是否添加类名后缀
@@ -463,7 +463,7 @@ class Loader
 
     /**
      * 实例化（分层）控制器 格式：[模块名/]控制器名
-     * @access layout
+     * @access public
      * @param  string $name         资源地址
      * @param  string $layer        控制层名称
      * @param  bool   $appendSuffix 是否添加类名后缀
@@ -492,7 +492,7 @@ class Loader
 
     /**
      * 实例化验证类 格式：[模块名/]验证器名
-     * @access layout
+     * @access public
      * @param  string $name         资源地址
      * @param  string $layer        验证层名称
      * @param  bool   $appendSuffix 是否添加类名后缀
@@ -558,7 +558,7 @@ class Loader
 
     /**
      * 数据库初始化 并取得数据库类实例
-     * @access layout
+     * @access public
      * @param  mixed       $config 数据库配置
      * @param  bool|string $name   连接标识 true 强制重新连接
      * @return \think\db\Connection
@@ -570,7 +570,7 @@ class Loader
 
     /**
      * 远程调用模块的操作方法 参数格式 [模块/控制器/]操作
-     * @access layout
+     * @access public
      * @param  string       $url          调用地址
      * @param  string|array $vars         调用参数 支持字符串和数组
      * @param  string       $layer        要调用的控制层名称
@@ -602,7 +602,7 @@ class Loader
     /**
      * 字符串命名风格转换
      * type 0 将 Java 风格转换为 C 的风格 1 将 C 风格转换为 Java 的风格
-     * @access layout
+     * @access public
      * @param  string  $name    字符串
      * @param  integer $type    转换类型
      * @param  bool    $ucfirst 首字母是否大写（驼峰规则）
@@ -623,7 +623,7 @@ class Loader
 
     /**
      * 解析应用类的类名
-     * @access layout
+     * @access public
      * @param  string $module       模块名
      * @param  string $layer        层名 controller model ...
      * @param  string $name         类名
@@ -645,7 +645,7 @@ class Loader
 
     /**
      * 初始化类的实例
-     * @access layout
+     * @access public
      * @return void
      */
     public static function clearInstance()

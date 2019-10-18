@@ -48,7 +48,6 @@ return [
     'KVDB init error'                                           => '没有初始化KVDB，请在SAE管理平台初始化KVDB服务',
     'fields not exists'                                         => '数据表字段不存在',
     'where express error'                                       => '查询表达式错误',
-    'not support data'                                          => '不支持的数据表达式',
     'no data to update'                                         => '没有任何数据需要更新',
     'miss data to insert'                                       => '缺少需要写入的数据',
     'miss complex primary data'                                 => '缺少复合主键数据',
@@ -131,6 +130,6 @@ return [
     ':attribute has exists'                                     => ':attribute已存在',
     ':attribute not conform to the rules'                       => ':attribute不符合指定规则',
     'invalid Request method'                                    => '无效的请求类型',
-    'invalid token'                                             => '令牌数据无效',
+    'invalid token'                                             => '令牌数据无效,请刷新重试',
     'not conform to the rules'                                  => '规则错误',
 ];

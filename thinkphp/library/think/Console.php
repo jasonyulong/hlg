@@ -78,7 +78,7 @@ class Console
 
     /**
      * Console constructor.
-     * @access layout
+     * @access public
      * @param  string     $name    名称
      * @param  string     $version 版本
      * @param null|string $user    执行用户
@@ -115,7 +115,7 @@ class Console
 
     /**
      * 初始化 Console
-     * @access layout
+     * @access public
      * @param  bool $run 是否运行 Console
      * @return int|Console
      */
@@ -147,7 +147,7 @@ class Console
 
     /**
      * 调用命令
-     * @access layout
+     * @access public
      * @param  string $command
      * @param  array  $parameters
      * @param  string $driver
@@ -170,7 +170,7 @@ class Console
 
     /**
      * 执行当前的指令
-     * @access layout
+     * @access public
      * @return int
      * @throws \Exception
      */
@@ -208,7 +208,7 @@ class Console
 
     /**
      * 执行指令
-     * @access layout
+     * @access public
      * @param  Input  $input  输入
      * @param  Output $output 输出
      * @return int
@@ -244,7 +244,7 @@ class Console
 
     /**
      * 设置输入参数定义
-     * @access layout
+     * @access public
      * @param  InputDefinition $definition 输入定义
      * @return $this;
      */
@@ -257,7 +257,7 @@ class Console
 
     /**
      * 获取输入参数定义
-     * @access layout
+     * @access public
      * @return InputDefinition
      */
     public function getDefinition()
@@ -267,7 +267,7 @@ class Console
 
     /**
      * 获取帮助信息
-     * @access layout
+     * @access public
      * @return string
      */
     public function getHelp()
@@ -277,7 +277,7 @@ class Console
 
     /**
      * 设置是否捕获异常
-     * @access layout
+     * @access public
      * @param bool $boolean 是否捕获
      * @return $this
      */
@@ -290,7 +290,7 @@ class Console
 
     /**
      * 设置是否自动退出
-     * @access layout
+     * @access public
      * @param bool $boolean 是否自动退出
      * @return $this
      */
@@ -303,7 +303,7 @@ class Console
 
     /**
      * 获取名称
-     * @access layout
+     * @access public
      * @return string
      */
     public function getName()
@@ -313,7 +313,7 @@ class Console
 
     /**
      * 设置名称
-     * @access layout
+     * @access public
      * @param  string $name 名称
      * @return $this
      */
@@ -326,7 +326,7 @@ class Console
 
     /**
      * 获取版本
-     * @access layout
+     * @access public
      * @return string
      */
     public function getVersion()
@@ -336,7 +336,7 @@ class Console
 
     /**
      * 设置版本
-     * @access layout
+     * @access public
      * @param  string $version 版本信息
      * @return $this
      */
@@ -349,7 +349,7 @@ class Console
 
     /**
      * 获取完整的版本号
-     * @access layout
+     * @access public
      * @return string
      */
     public function getLongVersion()
@@ -367,7 +367,7 @@ class Console
 
     /**
      * 注册一个指令
-     * @access layout
+     * @access public
      * @param string $name 指令名称
      * @return Command
      */
@@ -378,7 +378,7 @@ class Console
 
     /**
      * 批量添加指令
-     * @access layout
+     * @access public
      * @param  Command[] $commands 指令实例
      * @return $this
      */
@@ -391,7 +391,7 @@ class Console
 
     /**
      * 添加一个指令
-     * @access layout
+     * @access public
      * @param  Command $command 命令实例
      * @return Command|bool
      */
@@ -421,7 +421,7 @@ class Console
 
     /**
      * 获取指令
-     * @access layout
+     * @access public
      * @param  string $name 指令名称
      * @return Command
      * @throws \InvalidArgumentException
@@ -451,7 +451,7 @@ class Console
 
     /**
      * 某个指令是否存在
-     * @access layout
+     * @access public
      * @param  string $name 指令名称
      * @return bool
      */
@@ -462,7 +462,7 @@ class Console
 
     /**
      * 获取所有的命名空间
-     * @access layout
+     * @access public
      * @return array
      */
     public function getNamespaces()
@@ -486,7 +486,7 @@ class Console
 
     /**
      * 查找注册命名空间中的名称或缩写
-     * @access layout
+     * @access public
      * @param string $namespace
      * @return string
      * @throws \InvalidArgumentException
@@ -534,7 +534,7 @@ class Console
 
     /**
      * 查找指令
-     * @access layout
+     * @access public
      * @param  string $name 名称或者别名
      * @return Command
      * @throws \InvalidArgumentException
@@ -590,7 +590,7 @@ class Console
 
     /**
      * 获取所有的指令
-     * @access layout
+     * @access public
      * @param  string $namespace 命名空间
      * @return Command[]
      */
@@ -611,7 +611,7 @@ class Console
 
     /**
      * 获取可能的指令名
-     * @access layout
+     * @access public
      * @param  array $names 指令名
      * @return array
      */
@@ -724,7 +724,7 @@ class Console
 
     /**
      * 添加默认指令
-     * @access layout
+     * @access public
      * @param  array $classes 指令
      * @return void
      */
@@ -751,7 +751,7 @@ class Console
 
     /**
      * 返回指令的命名空间部分
-     * @access layout
+     * @access public
      * @param  string $name  指令名称
      * @param  string $limit 部分的命名空间的最大数量
      * @return string
@@ -828,7 +828,7 @@ class Console
 
     /**
      * 设置默认的指令
-     * @access layout
+     * @access public
      * @param string $commandName 指令名称
      * @return $this
      */

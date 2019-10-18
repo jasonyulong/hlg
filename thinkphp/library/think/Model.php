@@ -94,8 +94,6 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     protected $type = [];
     // 是否为更新数据
     protected $isUpdate = false;
-    // 是否使用Replace
-    protected $replace = false;
     // 是否强制更新所有数据
     protected $force = false;
     // 更新条件
@@ -126,7 +124,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 构造方法
-     * @access layout
+     * @access public
      * @param array|object $data 数据
      */
     public function __construct($data = [])
@@ -181,7 +179,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 是否从主库读取数据（主从分布有效）
-     * @access layout
+     * @access public
      * @param  bool     $all 是否所有模型生效
      * @return $this
      */
@@ -236,7 +234,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 创建新的模型实例
-     * @access layout
+     * @access public
      * @param  array|object $data 数据
      * @param  bool         $isUpdate 是否为更新
      * @param  mixed        $where 更新条件
@@ -249,7 +247,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取当前模型的查询对象
-     * @access layout
+     * @access public
      * @param bool      $buildNewQuery  创建新的查询对象
      * @return Query
      */
@@ -267,7 +265,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取当前模型的数据库查询对象
-     * @access layout
+     * @access public
      * @param bool $useBaseQuery 是否调用全局查询范围
      * @param bool $buildNewQuery 创建新的查询对象
      * @return Query
@@ -310,7 +308,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置父关联对象
-     * @access layout
+     * @access public
      * @param Model $model  模型对象
      * @return $this
      */
@@ -322,7 +320,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取父关联对象
-     * @access layout
+     * @access public
      * @return Model
      */
     public function getParent()
@@ -332,7 +330,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置数据对象值
-     * @access layout
+     * @access public
      * @param mixed $data  数据或者属性名
      * @param mixed $value 值
      * @return $this
@@ -361,7 +359,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取对象原始数据 如果不存在指定字段返回false
-     * @access layout
+     * @access public
      * @param string $name 字段名 留空获取全部
      * @return mixed
      * @throws InvalidArgumentException
@@ -381,7 +379,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 是否需要自动写入时间字段
-     * @access layout
+     * @access public
      * @param bool $auto
      * @return $this
      */
@@ -393,7 +391,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 更新是否强制写入数据 而不做比较
-     * @access layout
+     * @access public
      * @param bool $force
      * @return $this
      */
@@ -405,7 +403,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 修改器 设置数据对象值
-     * @access layout
+     * @access public
      * @param string $name  属性名
      * @param mixed  $value 属性值
      * @param array  $data  数据
@@ -434,7 +432,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取当前模型的关联模型数据
-     * @access layout
+     * @access public
      * @param string $name 关联方法名
      * @return mixed
      */
@@ -451,7 +449,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置关联数据对象值
-     * @access layout
+     * @access public
      * @param string $name  属性名
      * @param mixed  $value 属性值
      * @return $this
@@ -464,7 +462,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 自动写入时间戳
-     * @access layout
+     * @access public
      * @param string $name 时间戳字段
      * @return mixed
      */
@@ -502,7 +500,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 时间日期字段格式化处理
-     * @access layout
+     * @access public
      * @param mixed $time      时间日期表达式
      * @param mixed $format    日期格式
      * @param bool  $timestamp 是否进行时间戳转换
@@ -520,7 +518,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 数据写入 类型转换
-     * @access layout
+     * @access public
      * @param mixed        $value 值
      * @param string|array $type  要转换的类型
      * @return mixed
@@ -581,7 +579,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取器 获取数据对象的值
-     * @access layout
+     * @access public
      * @param string $name 名称
      * @return mixed
      * @throws InvalidArgumentException
@@ -631,7 +629,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取关联模型数据
-     * @access layout
+     * @access public
      * @param Relation        $modelRelation 模型关联对象
      * @return mixed
      * @throws BadMethodCallException
@@ -653,7 +651,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 数据读取 类型转换
-     * @access layout
+     * @access public
      * @param mixed        $value 值
      * @param string|array $type  要转换的类型
      * @return mixed
@@ -722,7 +720,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置需要追加的输出属性
-     * @access layout
+     * @access public
      * @param array $append   属性列表
      * @param bool  $override 是否覆盖
      * @return $this
@@ -735,7 +733,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置附加关联对象的属性
-     * @access layout
+     * @access public
      * @param string       $relation 关联方法
      * @param string|array $append   追加属性名
      * @return $this
@@ -771,7 +769,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置需要隐藏的输出属性
-     * @access layout
+     * @access public
      * @param array $hidden   属性列表
      * @param bool  $override 是否覆盖
      * @return $this
@@ -784,7 +782,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置需要输出的属性
-     * @access layout
+     * @access public
      * @param array $visible
      * @param bool  $override 是否覆盖
      * @return $this
@@ -847,7 +845,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 转换当前模型对象为数组
-     * @access layout
+     * @access public
      * @return array
      */
     public function toArray()
@@ -927,7 +925,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 转换当前模型对象为JSON字符串
-     * @access layout
+     * @access public
      * @param integer $options json参数
      * @return string
      */
@@ -938,7 +936,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 移除当前模型的关联属性
-     * @access layout
+     * @access public
      * @return $this
      */
     public function removeRelation()
@@ -949,7 +947,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 转换当前模型数据集为数据集对象
-     * @access layout
+     * @access public
      * @param array|\think\Collection $collection 数据集
      * @return \think\Collection
      */
@@ -968,7 +966,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 关联数据一起更新
-     * @access layout
+     * @access public
      * @param mixed $relation 关联
      * @return $this
      */
@@ -983,7 +981,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取模型对象的主键
-     * @access layout
+     * @access public
      * @param string $name 模型名
      * @return mixed
      */
@@ -1000,7 +998,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 判断一个字段名是否为主键字段
-     * @access layout
+     * @access public
      * @param string $key 名称
      * @return bool
      */
@@ -1016,20 +1014,8 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * 新增数据是否使用Replace
-     * @access layout
-     * @param  bool $replace
-     * @return $this
-     */
-    public function replace($replace = true)
-    {
-        $this->replace = $replace;
-        return $this;
-    }
-
-    /**
      * 保存当前数据对象
-     * @access layout
+     * @access public
      * @param array  $data     数据
      * @param array  $where    更新条件
      * @param string $sequence 自增序列名
@@ -1042,21 +1028,19 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
             $data     = [];
         }
 
-        // 数据自动验证
         if (!empty($data)) {
+            // 数据自动验证
             if (!$this->validateData($data)) {
                 return false;
             }
-
             // 数据对象赋值
             foreach ($data as $key => $value) {
                 $this->setAttr($key, $value, $data);
             }
-        }
-
-        if (!empty($where)) {
-            $this->isUpdate    = true;
-            $this->updateWhere = $where;
+            if (!empty($where)) {
+                $this->isUpdate    = true;
+                $this->updateWhere = $where;
+            }
         }
 
         // 自动关联写入
@@ -1179,9 +1163,9 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
             // 检测字段
             $allowFields = $this->checkAllowField(array_merge($this->auto, $this->insert));
             if (!empty($allowFields)) {
-                $result = $this->getQuery()->strict(false)->field($allowFields)->insert($this->data, $this->replace, false, $sequence);
+                $result = $this->getQuery()->strict(false)->field($allowFields)->insert($this->data, false, false, $sequence);
             } else {
-                $result = $this->getQuery()->insert($this->data, $this->replace, false, $sequence);
+                $result = $this->getQuery()->insert($this->data, false, false, $sequence);
             }
 
             // 获取自动增长主键
@@ -1258,7 +1242,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取变化的数据 并排除只读数据
-     * @access layout
+     * @access public
      * @return array
      */
     public function getChangedData()
@@ -1288,7 +1272,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 字段值(延迟)增长
-     * @access layout
+     * @access public
      * @param string  $field    字段名
      * @param integer $step     增长值
      * @param integer $lazyTime 延时时间(s)
@@ -1310,7 +1294,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 字段值(延迟)增长
-     * @access layout
+     * @access public
      * @param string  $field    字段名
      * @param integer $step     增长值
      * @param integer $lazyTime 延时时间(s)
@@ -1351,7 +1335,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 保存多个数据到当前数据对象
-     * @access layout
+     * @access public
      * @param array   $dataSet 数据
      * @param boolean $replace 是否自动识别更新和写入
      * @return array|false
@@ -1394,7 +1378,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置允许写入的字段
-     * @access layout
+     * @access public
      * @param string|array $field 允许写入的字段 如果为true只允许写入数据表字段
      * @return $this
      */
@@ -1409,7 +1393,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置排除写入的字段
-     * @access layout
+     * @access public
      * @param string|array $field 排除允许写入的字段
      * @return $this
      */
@@ -1424,7 +1408,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置只读字段
-     * @access layout
+     * @access public
      * @param mixed $field 只读字段
      * @return $this
      */
@@ -1439,7 +1423,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 是否为更新数据
-     * @access layout
+     * @access public
      * @param bool  $update
      * @param mixed $where
      * @return $this
@@ -1455,7 +1439,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 数据自动完成
-     * @access layout
+     * @access public
      * @param array $auto 要自动更新的字段列表
      * @return void
      */
@@ -1479,7 +1463,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 删除当前的记录
-     * @access layout
+     * @access public
      * @return integer
      */
     public function delete()
@@ -1514,7 +1498,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置自动完成的字段（ 规则通过修改器定义）
-     * @access layout
+     * @access public
      * @param array $fields 需要自动完成的字段
      * @return $this
      */
@@ -1526,7 +1510,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置字段验证
-     * @access layout
+     * @access public
      * @param array|string|bool $rule  验证规则 true表示自动读取验证器类
      * @param array             $msg   提示信息
      * @param bool              $batch 批量验证
@@ -1548,7 +1532,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 设置验证失败后是否抛出异常
-     * @access layout
+     * @access public
      * @param bool $fail 是否抛出异常
      * @return $this
      */
@@ -1602,7 +1586,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 返回模型的错误信息
-     * @access layout
+     * @access public
      * @return string|array
      */
     public function getError()
@@ -1612,7 +1596,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 注册回调方法
-     * @access layout
+     * @access public
      * @param string   $event    事件名
      * @param callable $callback 回调方法
      * @param bool     $override 是否覆盖
@@ -1651,7 +1635,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 写入数据
-     * @access layout
+     * @access public
      * @param array      $data  数据数组
      * @param array|true $field 允许字段
      * @return $this
@@ -1668,7 +1652,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 更新数据
-     * @access layout
+     * @access public
      * @param array      $data  数据数组
      * @param array      $where 更新条件
      * @param array|true $field 允许字段
@@ -1686,7 +1670,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 查找单条记录
-     * @access layout
+     * @access public
      * @param mixed        $data  主键值或者查询条件（闭包）
      * @param array|string $with  关联预查询
      * @param bool         $cache 是否缓存
@@ -1709,7 +1693,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 查找所有记录
-     * @access layout
+     * @access public
      * @param mixed        $data  主键列表或者查询条件（闭包）
      * @param array|string $with  关联预查询
      * @param bool         $cache 是否缓存
@@ -1728,7 +1712,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 分析查询表达式
-     * @access layout
+     * @access public
      * @param mixed  $data  主键列表或者查询条件（闭包）
      * @param string $with  关联预查询
      * @param bool   $cache 是否缓存
@@ -1752,7 +1736,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 删除记录
-     * @access layout
+     * @access public
      * @param mixed $data 主键列表 支持闭包查询条件
      * @return integer 成功删除的记录数
      */
@@ -1782,7 +1766,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 命名范围
-     * @access layout
+     * @access public
      * @param string|array|\Closure $name 命名范围名称 逗号分隔
      * @internal  mixed                 ...$params 参数调用
      * @return Query
@@ -1813,7 +1797,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     /**
      * 设置是否使用全局查询范围
      * @param bool $use 是否启用全局查询范围
-     * @access layout
+     * @access public
      * @return Query
      */
     public static function useGlobalScope($use)
@@ -1824,7 +1808,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param string  $relation 关联方法名
      * @param mixed   $operator 比较操作符
      * @param integer $count    个数
@@ -1842,7 +1826,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param  string $relation 关联方法名
      * @param  mixed  $where    查询条件（数组或者闭包）
      * @param  mixed  $fields   字段
@@ -1855,7 +1839,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 解析模型的完整命名空间
-     * @access layout
+     * @access public
      * @param string $model 模型名（或者完整类名）
      * @return string
      */
@@ -1872,7 +1856,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 查询当前模型的关联数据
-     * @access layout
+     * @access public
      * @param string|array $relations 关联名
      * @return $this
      */
@@ -1904,7 +1888,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 预载入关联查询 返回数据集
-     * @access layout
+     * @access public
      * @param array  $resultSet 数据集
      * @param string $relation  关联名
      * @return array
@@ -1932,7 +1916,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 预载入关联查询 返回模型对象
-     * @access layout
+     * @access public
      * @param Model  $result   数据对象
      * @param string $relation 关联名
      * @return Model
@@ -1961,7 +1945,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 关联统计
-     * @access layout
+     * @access public
      * @param Model        $result   数据对象
      * @param string|array $relation 关联名
      * @return void
@@ -1990,7 +1974,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取模型的默认外键名
-     * @access layout
+     * @access public
      * @param string $name 模型名
      * @return string
      */
@@ -2004,7 +1988,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * HAS ONE 关联定义
-     * @access layout
+     * @access public
      * @param string $model      模型名
      * @param string $foreignKey 关联外键
      * @param string $localKey   当前模型主键
@@ -2023,7 +2007,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * BELONGS TO 关联定义
-     * @access layout
+     * @access public
      * @param string $model      模型名
      * @param string $foreignKey 关联外键
      * @param string $localKey   关联主键
@@ -2044,7 +2028,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * HAS MANY 关联定义
-     * @access layout
+     * @access public
      * @param string $model      模型名
      * @param string $foreignKey 关联外键
      * @param string $localKey   当前模型主键
@@ -2061,7 +2045,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * HAS MANY 远程关联定义
-     * @access layout
+     * @access public
      * @param string $model      模型名
      * @param string $through    中间模型名
      * @param string $foreignKey 关联外键
@@ -2082,7 +2066,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * BELONGS TO MANY 关联定义
-     * @access layout
+     * @access public
      * @param string $model      模型名
      * @param string $table      中间表名
      * @param string $foreignKey 关联外键
@@ -2102,7 +2086,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * MORPH  MANY 关联定义
-     * @access layout
+     * @access public
      * @param string       $model 模型名
      * @param string|array $morph 多态字段信息
      * @param string       $type  多态类型
@@ -2128,7 +2112,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * MORPH  One 关联定义
-     * @access layout
+     * @access public
      * @param string       $model 模型名
      * @param string|array $morph 多态字段信息
      * @param string       $type  多态类型
@@ -2154,7 +2138,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * MORPH TO 关联定义
-     * @access layout
+     * @access public
      * @param string|array $morph 多态字段信息
      * @param array        $alias 多态别名定义
      * @return MorphTo
@@ -2209,7 +2193,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 修改器 设置数据对象的值
-     * @access layout
+     * @access public
      * @param string $name  名称
      * @param mixed  $value 值
      * @return void
@@ -2221,7 +2205,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 获取器 获取数据对象的值
-     * @access layout
+     * @access public
      * @param string $name 名称
      * @return mixed
      */
@@ -2232,7 +2216,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 检测数据对象的值
-     * @access layout
+     * @access public
      * @param string $name 名称
      * @return boolean
      */
@@ -2253,7 +2237,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     /**
      * 销毁数据对象的值
-     * @access layout
+     * @access public
      * @param string $name 名称
      * @return void
      */

@@ -20,7 +20,7 @@ class Error
 {
     /**
      * 注册异常处理
-     * @access layout
+     * @access public
      * @return void
      */
     public static function register()
@@ -33,7 +33,7 @@ class Error
 
     /**
      * 异常处理
-     * @access layout
+     * @access public
      * @param  \Exception|\Throwable $e 异常
      * @return void
      */
@@ -55,7 +55,7 @@ class Error
 
     /**
      * 错误处理
-     * @access layout
+     * @access public
      * @param  integer $errno      错误编号
      * @param  integer $errstr     详细错误信息
      * @param  string  $errfile    出错的文件
@@ -77,7 +77,7 @@ class Error
 
     /**
      * 异常中止处理
-     * @access layout
+     * @access public
      * @return void
      */
     public static function appShutdown()
@@ -106,7 +106,7 @@ class Error
 
     /**
      * 获取异常处理的实例
-     * @access layout
+     * @access public
      * @return Handle
      */
     public static function getExceptionHandler()

@@ -19,7 +19,7 @@ class HasOne extends OneToOne
 {
     /**
      * 构造函数
-     * @access layout
+     * @access public
      * @param Model  $parent     上级模型对象
      * @param string $model      模型名
      * @param string $foreignKey 关联外键
@@ -65,7 +65,7 @@ class HasOne extends OneToOne
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @return Query
      */
     public function has()
@@ -84,7 +84,7 @@ class HasOne extends OneToOne
 
     /**
      * 根据关联条件查询当前模型
-     * @access layout
+     * @access public
      * @param  mixed  $where 查询条件（数组或者闭包）
      * @param  mixed  $fields   字段
      * @return Query
@@ -113,7 +113,7 @@ class HasOne extends OneToOne
 
     /**
      * 预载入关联查询（数据集）
-     * @access layout
+     * @access public
      * @param array    $resultSet   数据集
      * @param string   $relation    当前关联名
      * @param string   $subRelation 子关联名
@@ -166,7 +166,7 @@ class HasOne extends OneToOne
 
     /**
      * 预载入关联查询（数据）
-     * @access layout
+     * @access public
      * @param Model    $result      数据对象
      * @param string   $relation    当前关联名
      * @param string   $subRelation 子关联名

@@ -9,7 +9,7 @@ namespace app\v1\controller;
 //use think\Controller;
 use app\common\controller\AuthController;
 use app\v1\service\Home;
-use think\session;
+use think\Session;
 class Index extends AuthController
 {
     /**
